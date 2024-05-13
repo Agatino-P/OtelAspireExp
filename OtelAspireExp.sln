@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtelAspireExp.Api", "OtelAspireExp.Api\OtelAspireExp.Api.csproj", "{69B70EE3-81EB-4506-AF94-6842702F6766}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69B70EE3-81EB-4506-AF94-6842702F6766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B70EE3-81EB-4506-AF94-6842702F6766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B70EE3-81EB-4506-AF94-6842702F6766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B70EE3-81EB-4506-AF94-6842702F6766}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDE61814-F7F7-4122-9921-58E5BF9A0DA3}
+	EndGlobalSection
+EndGlobal
