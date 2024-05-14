@@ -15,8 +15,8 @@ public class Program
         // Add services to the container.
         builder.AddAspireExtensions();
 
+        builder.Services.AddHttpLogging(x => {x. });
 
-    
 
         builder.Services.AddMetrics();
         builder.Services.AddSingleton<OtelAspireExtMetrics>();
@@ -40,7 +40,8 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
+        
+        app.UseHttpLogging();
 
         app.MapControllers();
 

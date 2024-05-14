@@ -15,6 +15,7 @@ public static class OtelExtensions
 
         builder.Services.AddServiceDiscovery();
 
+
         builder.Services.ConfigureHttpClientDefaults(http =>
         {
             // Turn on resilience by default
@@ -33,6 +34,7 @@ public static class OtelExtensions
         {
             x.IncludeScopes = true;
             x.IncludeFormattedMessage = true;
+            x.AddOtlpExporter();
         });
 
         builder.Services.AddOpenTelemetry()
