@@ -13,48 +13,10 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+        builder.AddAspireExtensions();
 
-        builder.Logging.AddOpenTelemetry(x =>
-        {
-            x.IncludeScopes = true;
-            x.IncludeFormattedMessage = true;
 
-        });
-
-        builder.Services.AddOpenTelemetry()
-            .WithMetrics(x =>
-            {
-                x.AddRuntimeInstrumentation()
-                .AddMeter(
-                    "Microsoft.AspNetCore.Hosting",
-                    "Microsoft.AspNetCore.Server.Kestrel",
-                    "System.Net.Http",
-                    "OtelAspireExt.Api"
-                    );
-            })
-            .WithTracing(x =>
-            {
-                if (builder.Environment.IsDevelopment())
-                {
-                    x.SetSampler<AlwaysOnSampler>();
-                }
-                x.AddAspNetCoreInstrumentation()
-                .AddHttpClientInstrumentation();
-
-            });
-
-        builder.Services.Configure<OpenTelemetryLoggerOptions>(logging => logging.AddOtlpExporter());
-        builder.Services.ConfigureOpenTelemetryMeterProvider(metrics => metrics.AddOtlpExporter());
-        builder.Services.ConfigureOpenTelemetryTracerProvider(tracing => tracing.AddOtlpExporter());
-
-        builder.Services.AddHealthChecks()
-            .AddCheck("self", () => HealthCheckResult.Healthy(), ["live"]);
-
-        builder.Services.ConfigureHttpClientDefaults(httpClient =>
-        {
-            httpClient.AddStandardResilienceHandler();
-        });
-
+    
 
         builder.Services.AddMetrics();
         builder.Services.AddSingleton<OtelAspireExtMetrics>();
